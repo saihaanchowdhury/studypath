@@ -29,7 +29,7 @@ function Login() {
 
     try {
         const response = await axios.post(
-        "https://studypath-fv08.onrender.com/api/auth/login",
+        "https://studypath-backend.onrender.com/api/auth/login",
         formData
     );
 

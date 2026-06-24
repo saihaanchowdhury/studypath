@@ -28,7 +28,7 @@ function Signup() {
 
     try {
       const response = await axios.post(
-        "https://studypath-fv08.onrender.com/api/auth/signup",
+        "https://studypath-backend.onrender.com/api/auth/signup",
         formData
     );
 

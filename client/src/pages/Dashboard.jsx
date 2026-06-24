@@ -54,7 +54,7 @@ function Dashboard() {
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        "http://127.0.0.1:5050/api/tutor/ask",
+        "https://studypath-backend.onrender.com/api/tutor/ask",
         formData,
         {
           headers: {
