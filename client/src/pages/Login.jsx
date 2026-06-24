@@ -4,7 +4,7 @@ import axios from "axios";
 
 function Login() {
 
-    
+
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -28,10 +28,10 @@ function Login() {
     setLoading(true);
 
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:5050/api/auth/login",
+        const response = await axios.post(
+        "https://studypath-fv08.onrender.com/api/auth/login",
         formData
-      );
+    );
 
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.user));

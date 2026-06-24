@@ -28,9 +28,9 @@ function Signup() {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:5050/api/auth/signup",
+        "https://studypath-fv08.onrender.com/api/auth/signup",
         formData
-      );
+    );
 
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.user));

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const API_URL = "https://studypath-fv08.onrender.com";
+
 function History() {
   const navigate = useNavigate();
 
@@ -26,14 +28,11 @@ function History() {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await axios.get(
-        "http://127.0.0.1:5050/api/tutor/sessions",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.get(`${API_URL}/api/tutor/sessions`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       setSessions(response.data);
     } catch (error) {
@@ -66,7 +65,7 @@ function History() {
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        `http://127.0.0.1:5050/api/tutor/sessions/${sessionId}`,
+        `${API_URL}/api/tutor/sessions/${sessionId}`,
         {
           title: editedTitle,
         },
@@ -104,14 +103,11 @@ function History() {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.delete(
-        `http://127.0.0.1:5050/api/tutor/sessions/${sessionId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      await axios.delete(`${API_URL}/api/tutor/sessions/${sessionId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       setSessions(sessions.filter((session) => session._id !== sessionId));
     } catch (error) {
@@ -150,9 +146,7 @@ function History() {
           <div>
             <p className="eyebrow">Saved Sessions</p>
             <h1>Your Study History</h1>
-            <p>
-              Review, edit, and delete your previous AI tutor sessions.
-            </p>
+            <p>Review, edit, and delete your previous AI tutor sessions.</p>
           </div>
         </div>
 

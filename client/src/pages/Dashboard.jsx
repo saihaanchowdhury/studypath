@@ -214,7 +214,7 @@ function Dashboard() {
               <div className="ai-response">
                {aiResponse
                 .replaceAll("**", "")
-                .replaceAll("*", "")
+                .replaceAll()
                 .split("\n")
                 .map((line, index) => (
                 <p key={index}>{line}</p>
